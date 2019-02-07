@@ -115,11 +115,11 @@ int main() {
     }
 
 entrada.close();
+finaly(salida);
     cout<<"Archivo html creado";
 
 }else cout<<"No hay cpp de entrada";
 
-    finaly(salida);
     salida.close();
     return 0;
   }

@@ -4,9 +4,6 @@
 
 using namespace std;
 
-void inicio (ofstream& salida){
-  salida<<"<!DOCTYPE html>\n<html>\n<head>\n<title>\nDocumentación del archivo entrada.cpp\n</title>\n</head>\n<body>\n";
-}
 
 void finaly (ofstream& salida){
   salida<<"\n</body>\n</html>";
@@ -100,7 +97,7 @@ int main() {
   filenametemp+=".html";
   ofstream salida(filenametemp.c_str());
 
-  inicio(salida);
+ salida<<"<!DOCTYPE html>\n<html>\n<head>\n<title>\nDocumentación del archivo "<<filename <<" \n</title>\n</head>\n<body>\n";
 
   if (entrada.is_open())
     {

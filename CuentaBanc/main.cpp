@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-
 using namespace std;
 
 #include "CuentaBanc.h"
@@ -13,11 +12,8 @@ int main() {
   getline(cin,nombre);
   cout<< "Saldo incial: ";
   cin>>saldo;
-  CuentaBanc cta1(nombre, saldo);
 
-cout<<endl<<"--------------------------"<<endl;
-  cout<<"Bienvendio al banco Bravo"<<endl;
-cout<<"--------------------------"<<endl<<endl;
+  CuentaBanc cta1(nombre, saldo);
 
 do{
 cout<<"Que transaccion desea hacer \n (A) Depositar \n (B) Retirar \n (C) Consulta Saldo \n (D) Terminar"<<endl;
@@ -64,11 +60,5 @@ else if(opcion=='C'||opcion=='c'){
     cout<<"---------------------------------------"<<endl<<endl;
 }
 
-
-
 }while (opcion!='D'&&opcion!='d');
-
-cout<<endl<<"-----------------------"<<endl<<"Que tengas un buen dia"<<endl<<"-----------------------";
-cin.ignore();
-
 }

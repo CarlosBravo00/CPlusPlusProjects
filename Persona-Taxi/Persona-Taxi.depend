@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1551825064 source:c:\users\carli\documents\codeblock projects\persona-taxi\main.cpp
+	<iostream>
+	"Persona.h"
+	"Taxi.h"
+
+1551805322 c:\users\carli\documents\codeblock projects\persona-taxi\persona.h
+
+1551805690 c:\users\carli\documents\codeblock projects\persona-taxi\taxi.h
+

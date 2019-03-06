@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1551832463 source:c:\users\carli\documents\codeblock projects\clase computadora salon\main.cpp
+	<iostream>
+	"Computadora.h"
+	"Salon.h"
+
+1551825798 c:\users\carli\documents\codeblock projects\clase computadora salon\computadora.h
+
+1551826380 c:\users\carli\documents\codeblock projects\clase computadora salon\salon.h
+

@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1551414566 source:g:\users\bravo-marquez pc\documents\github\work\administrar horas\main.cpp
+	<iostream>
+	<string>
+	<fstream>
+	"Empleado.h"
+
+1551412062 g:\users\bravo-marquez pc\documents\github\work\administrar horas\empleado.h
+

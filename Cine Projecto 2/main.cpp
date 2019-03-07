@@ -10,9 +10,11 @@ using namespace std;
 
 int main()
 {
+    //abrir archivos
     ifstream actores("actores.txt");
     ifstream peliculas("peliculas.txt");
 
+    //
     actor a[500];
     pelicula p[20];
     funcion f[20];
@@ -40,7 +42,6 @@ int main()
     int duracion;
     string genero;
     int cantactores;
-    int numactor;
     int idact;
     string titulo;
     bool x;
@@ -75,11 +76,83 @@ int main()
     }
 
 
+    //cargar funciones
+    int contaf;
+    cout<<"Cargar las funciones del dia"<<endl;
+    cout<<"Cuantas funciones: ";
+    cin>>contaf;
+
+    string cveFuncion;
+    int numPelif;
+    int sala;
+
+    int hh,mm;
+    hora hfuncion;
+    for(int i=0;i<contaf;i++){
+        cout<<"Clave de funcion: ";
+        cin>>cveFuncion;
+        f[i].setCveFuncion(cveFuncion);
+        cout<<"Numero de pelicula: ";
+        cin>>numPelif;
+        f[i].setNumeroPelicula(numPelif);
+        cout<<"Hora de la funcion(HH,MM): ";
+        cin>>hh>>mm;
+        hfuncion.setHora(hh);
+        hfuncion.setMin(mm);
+        f[i].setHoraFuncion(hfuncion);
+        cout<<"Sala: ";
+        cin>>sala;
+        f[i].setSala(sala);
+    }
+
+    //menu
+
+    char op;
+    do{
+    cout<<"---------------------------------------------------------------\n";
+    cout<<"Menu\n[A] Consulta de todos los actores que estan en la lista.\n[B] Consulta de todas las peliculas que estan en la lista.\n[C] Consulta de todas las funciones disponibles.";
+    cout<<"\n[D] Consulta de funciones por hora.\n[E] Consulta por clave de funcion.\n[F] Consulta la lista peliculas en las que participa un actor.\n[G] Terminar.\n------------->  ";
+    cin>>op;
+    if(op=='A'){
+    for(int i=0;i<conta;i++){
+        a[i].display();
+        cout<<endl;
+    }
+    }
+    else if (op=='B'){
+    for(int i=0;i<contp;i++){
+        cout<<endl;
+    }
+
+    }
+    else if (op=='C'){
+
+    }
+
+    else if (op=='D'){
+
+    }
+    else if (op=='E'){
+
+    }
+    else if (op=='F'){
+    for(int i=0;i<contp;i++){
+       for(int i=0;i<p[i].getCantidadActores();i++){
+
+       }
+    }
+    }
+
+    }while(op!='G');
 
 
 
 
-    //cargar peliculas
+
+
+
+
+
 
     return 0;
 }

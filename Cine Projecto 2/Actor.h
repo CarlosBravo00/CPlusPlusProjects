@@ -43,7 +43,7 @@ return nombre;
 }
 
 void actor::display(){
-cout<<"Id: "<<id<<" Nombre: "<<nombre;
+cout<<"Id: "<<id<<" Nombre:"<<nombre;
 }
 
 #endif // ACTOR_H_INCLUDED

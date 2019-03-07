@@ -77,10 +77,10 @@ int main()
 
 
     //cargar funciones
-    int contaf;
+    int contf;
     cout<<"Cargar las funciones del dia"<<endl;
     cout<<"Cuantas funciones: ";
-    cin>>contaf;
+    cin>>contf;
 
     string cveFuncion;
     int numPelif;
@@ -88,7 +88,7 @@ int main()
 
     int hh,mm;
     hora hfuncion;
-    for(int i=0;i<contaf;i++){
+    for(int i=0;i<contf;i++){
         cout<<"Clave de funcion: ";
         cin>>cveFuncion;
         f[i].setCveFuncion(cveFuncion);
@@ -121,11 +121,16 @@ int main()
     }
     else if (op=='B'){
     for(int i=0;i<contp;i++){
+       cout<<p[i].getNumPeli()<<p[i].getAno()<<p[i].getDuracion()<<p[i].getGenero()<<p[i].getCantidadActores()<<p[i].getTitulo()<<endl;
         cout<<endl;
     }
 
     }
     else if (op=='C'){
+    for(int i=0;i<contf;i++){
+        f[i].display();
+        cout<<endl;
+    }
 
     }
 

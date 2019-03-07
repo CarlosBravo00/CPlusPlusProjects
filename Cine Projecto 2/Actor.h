@@ -4,40 +4,44 @@
 class actor{
 public:
 actor();
-actor(string i,string n);
-void setId(string i);
+actor(int i,string n);
+void setId(int i);
 void setNombre(string n);
-string getId();
+int getId();
 string getNombre();
 void display();
+
 private:
-string id;
+int id;
 string nombre;
 };
 
 actor::actor(){
-id="";
+id=0;
 nombre="";
 }
 
-actor::actor(string i,string n){
+actor::actor(int i,string n){
 id=i;
 nombre=n;
 }
 
-void actor::setId(string i){
+void actor::setId(int i){
 id=i;
 }
 
 void actor::setNombre(string n){
 nombre=n;
 }
-string actor::getId(){
+
+int actor::getId(){
 return id;
 }
+
 string actor::getNombre(){
-return id;
+return nombre;
 }
+
 void actor::display(){
 cout<<"Id: "<<id<<" Nombre: "<<nombre;
 }

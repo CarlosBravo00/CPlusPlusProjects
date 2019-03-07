@@ -2,6 +2,7 @@
 #define FUNCION_H_INCLUDED
 
 class funcion{
+public:
     funcion();
     funcion(string cveF, int num, hora h, int s);
     void setCveFuncion(string cvef);
@@ -12,6 +13,7 @@ class funcion{
     int getNumPelicula();
     hora getHoraFuncion();
     int getSala();
+    void display();
 
 private:
     string cveFuncion;
@@ -27,6 +29,7 @@ funcion::funcion(){
     hra=vacio;
     sala=0;
 }
+
 funcion::funcion(string cveF, int num, hora h, int s){
     cveFuncion=cveF;
     numPeli=num;
@@ -35,29 +38,43 @@ funcion::funcion(string cveF, int num, hora h, int s){
 }
 
 void funcion::setCveFuncion(string cvef){
+    cveFuncion=cvef;
 }
 
 void funcion::setNumeroPelicula(int num){
+    numPeli=num;
 }
 
 void funcion::setHoraFuncion(hora h){
+    hra=h;
 }
 
 void funcion::setSala(int s){
+    sala=s;
 }
 
 string funcion::getCveFuncion(){
+    return cveFuncion;
 }
 
 int funcion::getNumPelicula(){
+    return numPeli;
 }
 
 hora funcion::getHoraFuncion(){
+    return hra;
 }
 
 int funcion::getSala(){
+    return sala;
 }
 
-
+void funcion::display(){
+cout<<"Clave de funcion: "<<cveFuncion;
+cout<<" Numero de pelicula: "<<numPeli;
+cout<<" Hora de funcion: ";
+hra.display();
+cout<<" Sala: "<<sala;
+}
 
 #endif // FUNCION_H_INCLUDED

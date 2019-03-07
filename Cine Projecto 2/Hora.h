@@ -29,6 +29,7 @@ hora::hora(int h,int m){
 int hora::getHora(){
   return hh;
 }
+
 int hora::getMin(){
   return mm;
 }
@@ -48,9 +49,9 @@ void hora::display(){
     cout<<hh;
   }
   if (mm<10){
-     cout<< ":0" << mm<<endl;
+     cout<< ":0" << mm;
   }else {
-    cout<< ":" << mm <<endl;
+    cout<< ":" << mm;
   }
 }
 

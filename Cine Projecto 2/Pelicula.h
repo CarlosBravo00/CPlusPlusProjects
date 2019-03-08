@@ -24,6 +24,8 @@ void setGenero(string ge);
 
 bool addtoListaActores(int id);
 
+void display();
+
 private:
 
 int numPeli;
@@ -105,6 +107,13 @@ bool pelicula::addtoListaActores(int id){
    return x;
 
 
+}
+
+void pelicula::display(){
+cout<<"Titulo: "<<titulo<<"\nNumero de pelicula: "<<numPeli<<"\nAño: "<<ano
+       <<"\nDuracion: "<<duracion<<" Minutos\nGenero: "<<genero
+       <<"\nCantidad de Actores: "<<cantidadActores<<endl;
+        cout<<endl;
 }
 
 #endif // PELICULA_H_INCLUDED

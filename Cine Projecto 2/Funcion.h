@@ -75,6 +75,7 @@ cout<<" Numero de pelicula: "<<numPeli;
 cout<<" Hora de funcion: ";
 hra.display();
 cout<<" Sala: "<<sala;
+cout<<endl;
 }
 
 #endif // FUNCION_H_INCLUDED

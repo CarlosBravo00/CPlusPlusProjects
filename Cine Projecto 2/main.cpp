@@ -45,7 +45,7 @@ int main()
     int cantactores;
     int idact;
     string titulo;
-    bool x;
+    bool x=true;
 
     int contp=0;
 
@@ -65,6 +65,9 @@ int main()
                 peliculas>>idact;
 
             x=p[contp].addtoListaActores(idact);
+        }
+        if(!x){
+            cout<<"No se pudieron cargar todos los actores";
         }
         getline(peliculas,titulo);
         p[contp].setTitulo(titulo);
@@ -118,13 +121,30 @@ int main()
     else if (op=='B'||op=='b'){
     for(int i=0;i<contp;i++){
        p[i].display();
+       cout<<"Actores: "<<endl;
+       for(int j=0;j<p[i].getCantidadActores();j++){
+            int indice=p[i].getListaActores(j);
+            for(int k=0;k<conta;k++){
+                if(a[k].getId()==indice){
+                    cout<<a[k].getNombre();
+                    cout<<endl;
+                }
+            }
+        }
+        cout<<endl;
     }
 
     }
     else if (op=='C'||op=='c'){
     for(int i=0;i<contf;i++){
-        f[i].display();
-        cout<<endl;
+    cout<<" Clave de funcion: "<<f[i].getCveFuncion()<<endl;
+    int tempo=f[i].getNumPelicula();
+    for(int j=0;j<contf;j++){
+        if(tempo==p[j].getNumPeli()){
+            cout<<p[j].getTitulo();
+        }
+    }
+    f[i].display();
     }
 
     }
@@ -147,11 +167,17 @@ int main()
     cin>>fun;
     for(int i=0;i<contf;i++){
     if(fun==f[i].getCveFuncion()){
-            f[i].display();
+    cout<<" Clave de funcion: "<<f[i].getCveFuncion()<<endl;
+    int tempo=f[i].getNumPelicula();
+    for(int j=0;j<contf;j++){
+        if(tempo==p[j].getNumPeli()){
+            cout<<p[j].getTitulo();
         }
     }
+    f[i].display();
     }
-
+        }
+    }
     else if (op=='F'||op=='f'){
     for(int i=0;i<contp;i++){
        for(int i=0;i<p[i].getCantidadActores();i++){

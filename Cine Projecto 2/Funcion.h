@@ -70,11 +70,12 @@ int funcion::getSala(){
 }
 
 void funcion::display(){
-cout<<"Clave de funcion: "<<cveFuncion;
-cout<<" Numero de pelicula: "<<numPeli;
+cout<<endl;
 cout<<" Hora de funcion: ";
 hra.display();
+cout<<endl;
 cout<<" Sala: "<<sala;
+cout<<endl;
 cout<<endl;
 }
 

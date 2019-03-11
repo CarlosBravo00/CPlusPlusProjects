@@ -10,10 +10,9 @@ using namespace std;
 
 int main()
 {
-    //EXTRA muetsra nombre de pelicula cuando pide funcion
     //dar respuesta si hora o clave no tiene funcion
     //buscar funcion or titulo de peliucla
-    //que pelicula hay en una sala
+    //bUSCAR FUncion por sala
 
     //abrir archivos
     ifstream actores("actores.txt");
@@ -112,12 +111,14 @@ int main()
     cout<<"Menu\n[A] Consulta de todos los actores que estan en la lista.\n[B] Consulta de todas las peliculas que estan en la lista.\n[C] Consulta de todas las funciones disponibles.";
     cout<<"\n[D] Consulta de funciones por hora.\n[E] Consulta por clave de funcion.\n[F] Consulta la lista peliculas en las que participa un actor.\n[G] Terminar.\n------------->  ";
     cin>>op;
+
     if(op=='A'||op=='a'){
     for(int i=0;i<conta;i++){
         a[i].display();
         cout<<endl;
     }
     }
+
     else if (op=='B'||op=='b'){
     for(int i=0;i<contp;i++){
        p[i].display();
@@ -135,19 +136,19 @@ int main()
     }
 
     }
+
     else if (op=='C'||op=='c'){
     for(int i=0;i<contf;i++){
-    cout<<" Clave de funcion: "<<f[i].getCveFuncion()<<endl;
     int tempo=f[i].getNumPelicula();
-    for(int j=0;j<contf;j++){
+    for(int j=0;j<contp;j++){
         if(tempo==p[j].getNumPeli()){
             cout<<p[j].getTitulo();
         }
     }
     f[i].display();
     }
-
     }
+
     else if (op=='D'||op=='d'){
     cout<<"Ingrese una hora (hh,mm): ";
     cin>>hh>>mm;
@@ -156,28 +157,35 @@ int main()
     hora tm=f[i].getHoraFuncion();
     if(tm.getHora()==ht.getHora()){
         if(tm.getMin()==ht.getMin()){
+
+            int tempo=f[i].getNumPelicula();
+            for(int j=0;j<contp;j++){
+            if(tempo==p[j].getNumPeli()){
+            cout<<p[j].getTitulo();
+            }}
             f[i].display();
-        }
     }
     }
     }
+}
+
     else if (op=='E'||op=='e'){
      cout<<"Ingrese clave de funcion: ";
      string  fun;
     cin>>fun;
     for(int i=0;i<contf;i++){
-    if(fun==f[i].getCveFuncion()){
-    cout<<" Clave de funcion: "<<f[i].getCveFuncion()<<endl;
-    int tempo=f[i].getNumPelicula();
-    for(int j=0;j<contf;j++){
-        if(tempo==p[j].getNumPeli()){
+        if(fun==f[i].getCveFuncion()){
+            int tempo=f[i].getNumPelicula();
+            for(int j=0;j<contp;j++){
+            if(tempo==p[j].getNumPeli()){
             cout<<p[j].getTitulo();
+            }
+            }
+            f[i].display();
+            }
         }
     }
-    f[i].display();
-    }
-        }
-    }
+
     else if (op=='F'||op=='f'){
     for(int i=0;i<contp;i++){
        for(int i=0;i<p[i].getCantidadActores();i++){

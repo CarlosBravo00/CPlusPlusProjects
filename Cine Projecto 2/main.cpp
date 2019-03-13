@@ -107,14 +107,14 @@ int main()
     cout<<"Menu\n[A] Consulta de todos los actores que estan en la lista.\n[B] Consulta de todas las peliculas que estan en la lista.\n[C] Consulta de todas las funciones disponibles.";
     cout<<"\n[D] Consulta de funciones por hora.\n[E] Consulta por clave de funcion.\n[F] Consulta la lista peliculas en las que participa un actor.\n[G] Terminar.\n------------->  ";
     cin>>op;
-
+    //Display de actores
     if(op=='A'||op=='a'){
     for(int i=0;i<conta;i++){
         a[i].display();
         cout<<endl;
     }
     }
-
+    //Display de peliculas
     else if (op=='B'||op=='b'){
     for(int i=0;i<contp;i++){
        p[i].display();
@@ -132,7 +132,7 @@ int main()
     }
 
     }
-
+    //Display de funciones
     else if (op=='C'||op=='c'){
     for(int i=0;i<contf;i++){
     int tempo=f[i].getNumPelicula();
@@ -144,7 +144,7 @@ int main()
     f[i].display();
     }
     }
-
+    //Buscar funcion por hora
     else if (op=='D'||op=='d'){
     do{
     cout<<"Ingrese hora (0-23): ";
@@ -176,7 +176,7 @@ int main()
         cout<<"No hay funciones a esta hora"<<endl;
     }
 }
-
+    //Buscar por clave de funcion
     else if (op=='E'||op=='e'){
      cout<<"Ingrese clave de funcion: ";
      string  fun;
@@ -210,7 +210,7 @@ int main()
         cout<<"Clave no tiene funcion"<<endl;
     }
     }
-
+    //Buscar por id de actor
     else if (op=='F'||op=='f'){
     int idactor;
     cout<<"Id del Actor: ";

@@ -70,7 +70,6 @@ int funcion::getSala(){
 }
 
 void funcion::display(){
-cout<<endl;
 cout<<" Clave de funcion: "<<cveFuncion;
 cout<<endl;
 cout<<" Hora de funcion: ";

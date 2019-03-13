@@ -10,10 +10,6 @@ using namespace std;
 
 int main()
 {
-    //dar respuesta si hora o clave no tiene funcion
-    //buscar funcion or titulo de peliucla
-    //bUSCAR FUncion por sala
-
     //abrir archivos
     ifstream actores("actores.txt");
     ifstream peliculas("peliculas.txt");
@@ -142,7 +138,7 @@ int main()
     int tempo=f[i].getNumPelicula();
     for(int j=0;j<contp;j++){
         if(tempo==p[j].getNumPeli()){
-            cout<<p[j].getTitulo();
+            cout<<p[j].getTitulo()<<endl;
         }
     }
     f[i].display();
@@ -150,60 +146,96 @@ int main()
     }
 
     else if (op=='D'||op=='d'){
-    cout<<"Ingrese una hora (hh,mm): ";
-    cin>>hh>>mm;
+    do{
+    cout<<"Ingrese hora (0-23): ";
+    cin>>hh;
+    }while(hh>23||hh<0);
+    do{
+    cout<<"Ingrese minutos (0-59): ";
+    cin>>mm;
+    }while(mm>59||mm<0);
+
     hora ht(hh,mm);
+    bool bayli=false;
+    cout<<endl;
     for(int i=0;i<contf;i++){
     hora tm=f[i].getHoraFuncion();
     if(tm.getHora()==ht.getHora()){
         if(tm.getMin()==ht.getMin()){
-
+            bayli=true;
             int tempo=f[i].getNumPelicula();
             for(int j=0;j<contp;j++){
             if(tempo==p[j].getNumPeli()){
-            cout<<p[j].getTitulo();
+            cout<<p[j].getTitulo()<<endl;
             }}
-            f[i].display();
+            cout<<" Sala: "<<f[i].getSala()<<endl<<endl;
     }
     }
+    }
+    if(!bayli){
+        cout<<"No hay funciones a esta hora"<<endl;
     }
 }
 
     else if (op=='E'||op=='e'){
      cout<<"Ingrese clave de funcion: ";
      string  fun;
+    bool pepe=false;
     cin>>fun;
     for(int i=0;i<contf;i++){
         if(fun==f[i].getCveFuncion()){
             int tempo=f[i].getNumPelicula();
             for(int j=0;j<contp;j++){
             if(tempo==p[j].getNumPeli()){
-            cout<<p[j].getTitulo();
+            cout<<p[j].getTitulo()<<endl;
+            cout<<" Duracion: "<<p[j].getDuracion()<<" Minutos"<<endl;
+            cout<<" Genero: "<<p[j].getGenero()<<endl;
+            cout<<" Actores: "<<endl;
+            for(int k=0;k<p[j].getCantidadActores();k++){
+            int indice=p[j].getListaActores(k);
+            for(int l=0;l<conta;l++){
+                if(a[l].getId()==indice){
+                    cout<<a[l].getNombre();
+                    cout<<endl;
+                }
+            }
+        }
             }
             }
             f[i].display();
+            pepe=true;
             }
         }
+    if (!pepe){
+        cout<<"Clave no tiene funcion"<<endl;
+    }
     }
 
     else if (op=='F'||op=='f'){
+    int idactor;
+    cout<<"Id del Actor: ";
+    cin>>idactor;
+    bool marco=false;
+    for(int k=0;k<conta;k++){
+    if(a[k].getId()==idactor){
+        cout<<a[k].getNombre();
+        marco=true;
+        cout<<endl<<endl;
+    }
+    }
+    if(marco){
     for(int i=0;i<contp;i++){
-       for(int i=0;i<p[i].getCantidadActores();i++){
-
+       for(int j=0;j<p[i].getCantidadActores();j++){
+            if(idactor==p[i].getListaActores(j)){
+                cout<<p[i].getTitulo()<<endl<<" Año: "<<p[i].getAno()<<endl;
+                cout<<endl;
+            }
        }
     }
+    }else cout<<"No existe Id actor"<<endl;
     }
 
     }while(op!='G'&&op!='g');
-
-
-
-
-
-
-
-
-
 
     return 0;
 }

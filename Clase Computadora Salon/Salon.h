@@ -18,8 +18,9 @@ computadora PC;
 };
 
 salon::salon(){
-    computadora vacio("","",0);
-    PC=vacio;
+    PC.setMarca("");
+    PC.setOS("");
+    PC.setRam(0);
     numSalon=0;
 
 }

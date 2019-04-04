@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1553879204 source:c:\users\carli\documents\codeblock projects\act herencia\main.cpp
+	<iostream>
+	<string>
+	"Triangulo.h"
+
+1553879187 c:\users\carli\documents\codeblock projects\act herencia\triangulo.h
+

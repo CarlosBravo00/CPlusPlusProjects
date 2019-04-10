@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1554941014 source:c:\users\carli\documents\codeblock projects\deportivo\main.cpp
+	<iostream>
+	"Reloj.h"
+	"Reserva.h"
+	"Servicio.h"
+	"Cancha.h"
+	"Maquina.h"
+
+1554939690 c:\users\carli\documents\codeblock projects\deportivo\reloj.h
+
+1554939755 c:\users\carli\documents\codeblock projects\deportivo\reserva.h
+
+1554941605 c:\users\carli\documents\codeblock projects\deportivo\servicio.h
+
+1554942248 c:\users\carli\documents\codeblock projects\deportivo\cancha.h
+
+1554942248 c:\users\carli\documents\codeblock projects\deportivo\maquina.h
+

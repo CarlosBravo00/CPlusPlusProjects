@@ -9,11 +9,9 @@ using namespace std;
 
 int main()
 {
-    Reloj r1;
-    Reserva r2;
-    Servicio *r3;
-    Cancha r4;
-    Maquina r5;
+    Servicio *Servicios[20];
+    Reserva Reservaciones[50];
+
 
 
     return 0;

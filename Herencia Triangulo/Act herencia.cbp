@@ -32,8 +32,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="Triangulo.h" />
-		<Unit filename="TrianguloNombre.h" />
+		<Unit filename="Equilatero.h" />
+		<Unit filename="EquilateroNombre.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

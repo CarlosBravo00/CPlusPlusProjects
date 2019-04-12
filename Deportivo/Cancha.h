@@ -3,19 +3,16 @@
 
 class Cancha:public Servicio{
 public:
-
-Cancha();
-Cancha(double costo,int maxpers, string deporte, string clave, int tiempoMax,char tipo);
-double getCostoXHr();
-int getCantMaxPers();
-string getDeporte();
-void setCostoXHr(double costo);
-void setCantMaxPers(int cant);
-void setDeporte (string depor);
-
-void muestra();
-double calculaCosto(int tiempo);
-
+    Cancha();
+    Cancha(double costo,int maxpers, string deporte, string clave, int tiempoMax,char tipo);
+    double getCostoXHr();
+    int getCantMaxPers();
+    string getDeporte();
+    void setCostoXHr(double costo);
+    void setCantMaxPers(int cant);
+    void setDeporte (string depor);
+    void muestra();
+    double calculaCosto(int tiempo);
 
 private:
     double costoXHr;

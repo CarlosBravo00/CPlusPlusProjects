@@ -1,7 +1,7 @@
 #ifndef MAQUINA_H_INCLUDED
 #define MAQUINA_H_INCLUDED
 
-class Maquina:Servicio{
+class Maquina:public Servicio{
 public:
     Maquina();
     Maquina(double costoX15min,bool conInstructor,string descripcion,string clave,int tiempoMax,char tipo);
@@ -11,14 +11,13 @@ public:
     void setCostoX15min(double costoX15min);
     void setConInstructor(bool conInstructor);
     void setDescripcion(string descripcion);
-
     void muestra();
     double calculaCosto(int tiempo);
 
 private:
-double costoX15min;
-bool conInstructor;
-string descripcion;
+    double costoX15min;
+    bool conInstructor;
+    string descripcion;
 };
 
 Maquina::Maquina():Servicio(){
@@ -55,7 +54,7 @@ void Maquina::setDescripcion(string descripcion){
 
 void Maquina::muestra(){
    cout<<"Tipo de servicio: Aparato"<<"\nClave: "<<clave<<"\nTiempo Max: "<<tiempoMax<<"\nTipo: "<<tipo;
-   cout<<"\nCosto por 15 minutos: "<<costoX15min<<"<\nDescrpcion: "<<descripcion<<"\nCon Instructor: ";
+   cout<<"\nCosto por 15 minutos: "<<costoX15min<<"\nDescrpcion: "<<descripcion<<"\nCon Instructor: ";
    if(conInstructor){
     cout<<"si";
    }else cout<<"no";

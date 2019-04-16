@@ -53,7 +53,19 @@ void Maquina::setDescripcion(string descripcion){
 }
 
 void Maquina::muestra(){
-   cout<<"Tipo de servicio: Aparato"<<"\nClave: "<<clave<<"\nTiempo Max: "<<tiempoMax<<"\nTipo: "<<tipo;
+   cout<<"Servicio: Aparato";
+   cout<<"\nTipo: ";
+   if(tipo=='C'){
+    cout<<"Caminadora";
+   }
+   else if(tipo=='E'){
+    cout<<"Escaladora";
+   }
+   else if(tipo=='B'){
+    cout<<"Bicicleta estacionaria";
+   }
+
+   cout<<"\nClave: "<<clave<<"\nTiempo Max: "<<tiempoMax;
    cout<<"\nCosto por 15 minutos: "<<costoX15min<<"\nDescrpcion: "<<descripcion<<"\nCon Instructor: ";
    if(conInstructor){
     cout<<"si";

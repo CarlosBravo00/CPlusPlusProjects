@@ -58,7 +58,19 @@ void Cancha::setDeporte (string depor){
 
 
 void Cancha::muestra(){
-cout<<"Tipo de servicio: Cancha"<<"\nClave: "<<clave<<"\nTiempo Max: "<<tiempoMax<<"\nTipo: "<<tipo;
+cout<<"Tipo de servicio: Cancha";
+   cout<<"\nTipo: ";
+   if(tipo=='T'){
+    cout<<"Cancha Tenis";
+   }
+   else if(tipo=='F'){
+    cout<<"Cancha Fronton";
+   }
+   else if(tipo=='V'){
+    cout<<"Cancha Volley Ball";
+   }
+
+cout<<"\nClave: "<<clave<<"\nTiempo Max: "<<tiempoMax;
 cout<<"\nDeporte: "<<Deporte<<"\nCantidad maxima de personas: "<<cantMaxPers<<"\nCosto por hora: "<<costoXHr;
 }
 

@@ -99,6 +99,10 @@ int main()
     {
     while (!aReservas.eof())
     {
+        int x;
+        cout<<x;
+        x++;
+        cout<<endl;
 
 
 

@@ -30,7 +30,7 @@ int main()
      r3[0]->muestra();
      */
 
-
+    //Declaraciones
     Servicio *Servicios[20];
     Cancha Canchas[20];
     Maquina Maquinas[20];
@@ -38,7 +38,7 @@ int main()
     ifstream aServicios ("Servicios.txt");
     ifstream aReservas ("Reserva.txt");
 
-    int i=0;
+    int ContServicios=0;
     string cveServicio;
     int tiempoMax;
     char tipoServ;
@@ -50,10 +50,12 @@ int main()
     string descripcion;
     string deporte;
 
+    //Cargar servicios
     while(!aServicios.eof()){
         aServicios>>cveServicio;
          aServicios>>tiempoMax;
          aServicios>>tipoServ;
+         ///Cargar maquinas
          if(tipoServ=='C'||tipoServ=='E'||tipoServ=='B'){
 
             aServicios>>costoX15min;
@@ -63,28 +65,29 @@ int main()
             } else conInstructor=false;
             getline(aServicios,descripcion);
 
-            Maquinas[i].setClave(cveServicio);
-            Maquinas[i].setTiempoMax(tiempoMax);
-            Maquinas[i].setTipo(tipoServ);
-            Maquinas[i].setCostoX15min(costoX15min);
-            Maquinas[i].setConInstructor(conInstructor);
-            Maquinas[i].setDescripcion(descripcion);
-            Servicios[i]=&Maquinas[i];
-            i++;
+            Maquinas[ContServicios].setClave(cveServicio);
+            Maquinas[ContServicios].setTiempoMax(tiempoMax);
+            Maquinas[ContServicios].setTipo(tipoServ);
+            Maquinas[ContServicios].setCostoX15min(costoX15min);
+            Maquinas[ContServicios].setConInstructor(conInstructor);
+            Maquinas[ContServicios].setDescripcion(descripcion);
+            Servicios[ContServicios]=&Maquinas[ContServicios];
+            ContServicios++;
          }
+         ///Cargar canchas
          else if(tipoServ=='T'||tipoServ=='F'||tipoServ=='V'){
             aServicios>>costoXhr;
             aServicios>>cantidadMaxPersonas;
             getline(aServicios,deporte);
 
-            Canchas[i].setClave(cveServicio);
-            Canchas[i].setTiempoMax(tiempoMax);
-            Canchas[i].setTipo(tipoServ);
-            Canchas[i].setCostoXHr(costoXhr);
-            Canchas[i].setCantMaxPers(cantidadMaxPersonas);
-            Canchas[i].setDeporte(deporte);
-            Servicios[i]=&Canchas[i];
-            i++;
+            Canchas[ContServicios].setClave(cveServicio);
+            Canchas[ContServicios].setTiempoMax(tiempoMax);
+            Canchas[ContServicios].setTipo(tipoServ);
+            Canchas[ContServicios].setCostoXHr(costoXhr);
+            Canchas[ContServicios].setCantMaxPers(cantidadMaxPersonas);
+            Canchas[ContServicios].setDeporte(deporte);
+            Servicios[ContServicios]=&Canchas[ContServicios];
+            ContServicios++;
 
 
 
@@ -95,21 +98,47 @@ int main()
         aServicios.close();
 
 
-        if (aReservas.is_open())
-    {
+
+//Cargar Reservaciones
+    int ContReservaciones=0;
+     string claveServicio;
+    int idCliente;
+    Reloj HoraInicio;
+    int duracion;
+
     while (!aReservas.eof())
     {
-        int x;
-        cout<<x;
-        x++;
-        cout<<endl;
-
-
-
-
-
+     aReservas>>claveServicio;
+     aReservas>>HoraInicio;
+     aReservas>>duracion;
+     aReservas>>idCliente;
+     Reservaciones[ContReservaciones].setClaveServicio(claveServicio);
+     Reservaciones[ContReservaciones].setHoraInicio(HoraInicio);
+     Reservaciones[ContReservaciones].setDuracion(duracion);
+     Reservaciones[ContReservaciones].setIdCliente(idCliente);
+     ContReservaciones++;
     }
+    ContReservaciones--;
+    aReservas.close();
+
+    //Establecer reservas como salida y cargar todos las Reservas
+    ofstream oReservas ("Reserva.txt");
+    for(int q=0;q<ContReservaciones;q++){
+    oReservas<<Reservaciones[q].getClaveServicio();
+    oReservas<<" ";
+    oReservas<<Reservaciones[q].getHoraInicio();
+    oReservas<<" ";
+    oReservas<<Reservaciones[q].getDuracion();
+    oReservas<<" ";
+    oReservas<<Reservaciones[q].getIdCliente();
+    oReservas<<endl;
     }
+
+    //Menu
+
+
+
+
 
 
 

@@ -42,7 +42,7 @@ ostream& operator << (ostream &os, Reloj r){
   if (r.hora<10){
         os << "0";
   }
-    os <<r.hora<<" ";
+    os <<r.hora<<":";
 if (r.minu<10){
         os << "0";
 }

@@ -58,7 +58,7 @@ void Cancha::setDeporte (string depor){
 
 
 void Cancha::muestra(){
-cout<<"Tipo de servicio: Cancha";
+cout<<"Servicio: Cancha";
    cout<<"\nTipo: ";
    if(tipo=='T'){
     cout<<"Cancha Tenis";

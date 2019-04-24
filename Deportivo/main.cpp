@@ -11,25 +11,6 @@ using namespace std;
 
 int main()
 {
-    /*Reloj r1(12,30);
-    Reserva r2("Hola",12,r1,34);
-    Servicio *r3[50];
-    Cancha r4(12,12,"Futboal","HOLA",12,'d');
-    Maquina r5(21,false,"hola","pepe",12,'c');
-    r3[0]=&r4;
-    r3[1]=&r5;
-    r3[1]->muestra();
-    cout<<"\n--------------------\n";
-    r3[0]->muestra();
-    cout<<endl<<r2.calculaHoraFinReservacion();
-     cout<<"\n--------------------\n";
-     r4.setCantMaxPers(200);
-     r3[2]=&r4;
-     r3[2]->muestra();
-
-     r3[0]->muestra();
-     */
-
     //Declaraciones
     Servicio *Servicios[20];
     Cancha Canchas[20];
@@ -80,7 +61,7 @@ int main()
             aServicios>>cantidadMaxPersonas;
             getline(aServicios,deporte);
 
-            Canchas[ContServicios].setClave(cveServicio);
+            Canchas[ContServicios].setClave(cveServicio);cout<<"\n----------------------------------------------\n";
             Canchas[ContServicios].setTiempoMax(tiempoMax);
             Canchas[ContServicios].setTipo(tipoServ);
             Canchas[ContServicios].setCostoXHr(costoXhr);
@@ -121,12 +102,26 @@ int main()
     ContReservaciones--;
     aReservas.close();
 
-    //Establecer reservas como salida y cargar todos las Reservas
+    //Establecer reservas como salida y cargar todos las Reservas del arreglo
+    Reloj temporal;
     ofstream oReservas ("Reserva.txt");
     for(int q=0;q<ContReservaciones;q++){
     oReservas<<Reservaciones[q].getClaveServicio();
     oReservas<<" ";
-    oReservas<<Reservaciones[q].getHoraInicio();
+
+    temporal=Reservaciones[q].getHoraInicio();
+      if (temporal.getHora()<10){
+        oReservas << "0";
+  }
+    oReservas<<temporal.getHora();
+
+        oReservas<<" ";
+
+    if (temporal.getMin()<10){
+        oReservas << "0";
+  }
+    oReservas<<temporal.getMin();
+
     oReservas<<" ";
     oReservas<<Reservaciones[q].getDuracion();
     oReservas<<" ";
@@ -135,6 +130,97 @@ int main()
     }
 
     //Menu
+    char op;
+    bool terminar=true;
+    do{
+
+    cin>>op;
+        if(op=='A'||op=='a'){///Muestra servicios
+        for(int i=0;i<ContServicios;i++){
+            Servicios[i]->muestra();
+            cout<<"\n----------------------------------------------\n";
+        }
+        }
+        else if(op=='B'||op=='b'){///Muestra reservaciones
+        for(int i=0;i<ContReservaciones;i++){
+            cout<<"Clave servicio: "<<Reservaciones[i].getClaveServicio()<<endl;
+            cout<<"ID Cliente: "<<Reservaciones[i].getIdCliente()<<endl;
+            cout<<"Hora inicio: "<<Reservaciones[i].getHoraInicio()<<endl;
+            cout<<"Hora final: "<<Reservaciones[i].calculaHoraFinReservacion();
+            cout<<"\n----------------------------------------------\n";
+        }
+
+        }
+       else if(op=='C'||op=='c'){ ///Busca reservaciones por clave
+            cout<<"Clave de Servicio: ";
+            string idString;
+            cin>>idString;
+            for(int i=0;i<ContServicios;i++){
+                if(idString==Servicios[i]->getClave()){
+                    Servicios[i]->muestra();
+                    cout<<"\n----------------------------------------------\n";
+                }
+            }
+            bool check=true;
+            cout<<"Reservas: "<<endl;
+            for(int i=0;i<ContReservaciones;i++){
+                if(idString==Reservaciones[i].getClaveServicio()){
+                   cout<<"ID Cliente: "<<Reservaciones[i].getIdCliente()<<endl;
+                cout<<"Hora inicio: "<<Reservaciones[i].getHoraInicio()<<endl;
+                cout<<"Hora final: "<<Reservaciones[i].calculaHoraFinReservacion();
+                cout<<"\n----------------------------------------------\n";
+                check=false;
+                }
+            }
+            if(check){
+                cout<<"No tiene reservaciones";
+                cout<<"\n----------------------------------------------\n";
+
+            }
+
+
+
+        }
+
+       else if(op=='D'||op=='d'){ ///Busca reservaciones por hora
+            Reloj Relojtem;
+            cout<<"Hora(hh/mm): ";
+            cin>>Relojtem;
+            cout<<"----------------------------------------------\n";
+            for(int i=0;i<ContReservaciones;i++){
+                if(Relojtem>=Reservaciones[i].getHoraInicio()){
+                if(Relojtem<=Reservaciones[i].calculaHoraFinReservacion()){
+                cout<<"Reservado de: "<<Reservaciones[i].getHoraInicio()<<" a "<<Reservaciones[i].calculaHoraFinReservacion()<<endl;
+                for(int j=0;j<ContServicios;j++){
+                    if(Reservaciones[i].getClaveServicio()==Servicios[j]->getClave()){
+                        Servicios[j]->muestra();
+                        cout<<"\n----------------------------------------------\n";
+                    }
+
+                }
+
+                }
+            }
+
+
+        }
+       }
+
+       else if(op=='E'||op=='e'){
+
+
+        }
+       else if(op=='F'||op=='f'){
+            terminar=false;
+        }
+
+
+
+
+
+
+    }while(terminar);
+
 
 
 

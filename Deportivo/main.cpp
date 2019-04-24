@@ -61,7 +61,7 @@ int main()
             aServicios>>cantidadMaxPersonas;
             getline(aServicios,deporte);
 
-            Canchas[ContServicios].setClave(cveServicio);cout<<"\n----------------------------------------------\n";
+            Canchas[ContServicios].setClave(cveServicio);
             Canchas[ContServicios].setTiempoMax(tiempoMax);
             Canchas[ContServicios].setTipo(tipoServ);
             Canchas[ContServicios].setCostoXHr(costoXhr);
@@ -207,9 +207,80 @@ int main()
        }
 
        else if(op=='E'||op=='e'){
+        bool condi=true;
+
+       //id cliente
+        cout<<"ID Cliente: ";
+        cin>>idCliente;
+
+        //clave
+        bool condiClave=true;
+        do{
+        cout<<"Clave de servicio: ";
+        cin>>claveServicio;
+        for(int i=0;i<ContServicios&&!condi;i++){
+            if(claveServicio==Servicios[i]->getClave()){
+                condiClave=false;
+            }
+        }
+        }
+        while (condiClave);
+
+        //Hora
+        cout<<"Hora a la que se desea reservar(hh/mm): ";
+        cin>>HoraInicio;
+
+        //Minutos reservar
+        bool condiDuracion=true;
+        do{
+        cout<<"Minutos que se desea reservar: ";
+        cin>>duracion;
+
+        }while(condiDuracion);
+
+        //Checar que se pueda la hora
+        if(condi){
 
 
         }
+        //Agregar reservacion si condi
+        if(condi){
+            bool unavez=true;
+            for(int i=0;i<ContServicios&&unavez;i++){
+                if(claveServicio==Servicios[i]->getClave()){
+                cout<<"\n----------------------------------------------\n";
+                cout<<"Reservacion exitosa\nCosto: "<<Servicios[i]->calculaCosto(duracion)<<"$\n";
+                cout<<"\n----------------------------------------------\n";
+                unavez=false;
+
+            }
+            }
+            Reservaciones[ContReservaciones].setIdCliente(idCliente);
+            Reservaciones[ContReservaciones].setClaveServicio(claveServicio);
+            Reservaciones[ContReservaciones].setHoraInicio(HoraInicio);
+            Reservaciones[ContReservaciones].setDuracion(duracion);
+            oReservas<<Reservaciones[ContReservaciones].getClaveServicio();
+            oReservas<<" ";
+
+            temporal=Reservaciones[ContReservaciones].getHoraInicio();
+            if (temporal.getHora()<10){
+                        oReservas << "0";
+                  }
+            oReservas<<temporal.getHora();
+            oReservas<<" ";
+            if (temporal.getMin()<10){
+                        oReservas << "0";
+                  }
+            oReservas<<temporal.getMin();
+            oReservas<<" ";
+            oReservas<<Reservaciones[ContReservaciones].getDuracion();
+            oReservas<<" ";
+            oReservas<<Reservaciones[ContReservaciones].getIdCliente();
+            oReservas<<endl;
+            ContReservaciones++;
+            }
+        }
+
        else if(op=='F'||op=='f'){
             terminar=false;
         }

@@ -134,6 +134,15 @@ int main()
     bool terminar=true;
     do{
 
+       cout<<"--------------------MENU----------------------\n";
+        cout<<"( A ) Consulta lista de servicios\n";
+        cout<<"( B ) Consulta lista de reservaciones\n";
+        cout<<"( C ) Consulta las reservaciones de una servicio dado\n";
+        cout<<"( D ) Consulta las reservaciones de una hora especifica\n";
+        cout<<"( E ) Hacer una reservación\n";
+        cout<<"( F ) Terminar";
+        cout<<"\n---------------------------------------------> ";
+
     cin>>op;
         if(op=='A'||op=='a'){///Muestra servicios
         for(int i=0;i<ContServicios;i++){
@@ -218,7 +227,7 @@ int main()
         do{
         cout<<"Clave de servicio: ";
         cin>>claveServicio;
-        for(int i=0;i<ContServicios&&!condi;i++){
+        for(int i=0;i<ContServicios&&condiClave;i++){
             if(claveServicio==Servicios[i]->getClave()){
                 condiClave=false;
             }
@@ -235,23 +244,75 @@ int main()
         do{
         cout<<"Minutos que se desea reservar: ";
         cin>>duracion;
+        for(int i=0;i<ContServicios;i++){
+        if(claveServicio==Servicios[i]->getClave()){
+            if(duracion>Servicios[i]->getTiempoMax()){
+                cout<<"----------------------------------------------\n";
+                cout<<"EL tiempo maximo de este servicio es: "<<Servicios[i]->getTiempoMax();
+                cout<<"\nCancelar reservacion[C] o Modificar duracion[M]----> ";
+                char opp;
+                cin>>opp;
+                if(opp=='C'||opp=='c'){
+                 condi=false;
+                 condiDuracion=false;
+                cout<<"----------------------------------------------\n";
+                }
+            }else condiDuracion=false;
+        }
+        }
 
         }while(condiDuracion);
 
         //Checar que se pueda la hora
+        Reloj HoraFinal=HoraInicio+duracion;
         if(condi){
+        for(int i=0;i<ContReservaciones;i++){
+            if(claveServicio==Reservaciones[i].getClaveServicio()){
+                if(HoraInicio<=Reservaciones[i].getHoraInicio()){
+                    if(HoraFinal>=Reservaciones[i].getHoraInicio()){
+                        condi=false;
+                        cout<<"----------------------------------------------\n";
+                        cout<<"No es posible crear una reservacion a esta hora";
+                        cout<<"\nTu reservacion: "<<HoraInicio<<" a "<<HoraFinal;
+                        cout<<"\nReservacion existente: "<<Reservaciones[i].getHoraInicio()<<" a "<<Reservaciones[i].calculaHoraFinReservacion();
+                        cout<<endl;
+                        }
+                }
+                if(condi){
+                 if(HoraInicio>=Reservaciones[i].getHoraInicio()){
+                    if(HoraFinal<=Reservaciones[i].calculaHoraFinReservacion()){
+                        condi=false;
+                           cout<<"----------------------------------------------\n";
+                        cout<<"No es posible crear una reservacion a esta hora";
+                        cout<<"\nTu reservacion: "<<HoraInicio<<" a "<<HoraFinal;
+                        cout<<"\nReservacion existente: "<<Reservaciones[i].getHoraInicio()<<" a "<<Reservaciones[i].calculaHoraFinReservacion();
+                        cout<<endl;
+                    }
+                }
+                }
+                if(condi){
+                 if(HoraInicio<=Reservaciones[i].calculaHoraFinReservacion()){
+                    if(HoraFinal>=Reservaciones[i].calculaHoraFinReservacion()){
+                        condi=false;
+                        cout<<"----------------------------------------------\n";
+                        cout<<"No es posible crear una reservacion a esta hora";
+                        cout<<"\nTu reservacion: "<<HoraInicio<<" a "<<HoraFinal;
+                        cout<<"\nReservacion existente: "<<Reservaciones[i].getHoraInicio()<<" a "<<Reservaciones[i].calculaHoraFinReservacion();
+                        cout<<endl;
+                    }
+                }
+                }
 
-
+        }
+        }
         }
         //Agregar reservacion si condi
         if(condi){
-            bool unavez=true;
-            for(int i=0;i<ContServicios&&unavez;i++){
+            for(int i=0;i<ContServicios;i++){
                 if(claveServicio==Servicios[i]->getClave()){
+                cout<<"----------------------------------------------\n";
+                cout<<"Reservacion exitosa\nCosto: "<<Servicios[i]->calculaCosto(duracion)<<"$";
                 cout<<"\n----------------------------------------------\n";
-                cout<<"Reservacion exitosa\nCosto: "<<Servicios[i]->calculaCosto(duracion)<<"$\n";
-                cout<<"\n----------------------------------------------\n";
-                unavez=false;
 
             }
             }

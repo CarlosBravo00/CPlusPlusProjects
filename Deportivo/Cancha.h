@@ -11,6 +11,7 @@ public:
     void setCostoXHr(double costo);
     void setCantMaxPers(int cant);
     void setDeporte (string depor);
+
     void muestra();
     double calculaCosto(int tiempo);
 

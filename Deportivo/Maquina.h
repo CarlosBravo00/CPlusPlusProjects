@@ -11,6 +11,7 @@ public:
     void setCostoX15min(double costoX15min);
     void setConInstructor(bool conInstructor);
     void setDescripcion(string descripcion);
+
     void muestra();
     double calculaCosto(int tiempo);
 

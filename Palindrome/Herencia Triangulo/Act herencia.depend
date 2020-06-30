@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1554398561 source:g:\users\bravo-marquez pc\documents\github\work\herencia triangulo\main.cpp
+	<iostream>
+	<string>
+	"Equilatero.h"
+	"EquilateroNombre.h"
+
+1554398396 g:\users\bravo-marquez pc\documents\github\work\herencia triangulo\equilatero.h
+
+1554398593 g:\users\bravo-marquez pc\documents\github\work\herencia triangulo\equilateronombre.h
+
+1554397944 g:\users\bravo-marquez pc\documents\github\work\herencia triangulo\equilaterobase.h
+	"EquilateroNombre.h"
+	<string>
+

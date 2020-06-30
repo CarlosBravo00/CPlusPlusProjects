@@ -11,23 +11,23 @@ int main()
     cin>>x;
     Taxi Taxis[240];
     for(int i=0;i<x;i++){
-    cout<<"Taxi "<<i+1<<endl;
-    string cel;
-    string nom;
-    int idtaxi;
-    cout<<"Id Taxi: ";
-    cin>>idtaxi;
-    cout<<"Nombre de responsable: ";
-    cin>>nom;
-    cout<<"Numero celular del resposanble: ";
-    cin>>cel;
-    Taxi tax;
-    Persona res;
-    tax.setIdnet(idtaxi);
-    res.setNombre(nom);
-    res.setNumCel(cel);
-    tax.setResponsable(res);
-    Taxis[i]=tax;
+        cout<<"Taxi "<<i+1<<endl;
+        string cel;
+        string nom;
+        int idtaxi;
+        cout<<"Id Taxi: ";
+        cin>>idtaxi;
+        cout<<"Nombre de responsable: ";
+        cin>>nom;
+        cout<<"Numero celular del resposanble: ";
+        cin>>cel;
+        Taxi tax;
+        Persona res;
+        tax.setIdnet(idtaxi);
+        res.setNombre(nom);
+        res.setNumCel(cel);
+        tax.setResponsable(res);
+        Taxis[i]=tax;
     }
     char op;
     do{
